@@ -1,7 +1,23 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+
 function App() {
   return (
     <>
-      <h1 className="text-amber-950 text-6xl">Home Page</h1>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
     </>
   );
 }
