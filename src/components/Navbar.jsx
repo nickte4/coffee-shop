@@ -1,24 +1,20 @@
+import { useEffect, useState } from "react";
+import NavbarDesktop from "./NavbarDesktop";
+import NavbarMobile from "./NavbarMobile";
+
 export default function Navbar() {
-  return (
-    <>
-      <ul className="border-2 border-black p-5 mx-20 my-5">
-        <li>
-          <a
-            className="hover:text-purple-400 hover:underline underline-offset-2"
-            href="/"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            className="hover:text-purple-400 hover:underline underline-offset-2"
-            href="/about"
-          >
-            About
-          </a>
-        </li>
-      </ul>
-    </>
-  );
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 640;
+  });
+
+  function handleResize() {
+    window.innerWidth < 640 ? setIsMobile(true) : setIsMobile(false);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  }, []);
+
+  return <>{isMobile ? <NavbarMobile /> : <NavbarDesktop />}</>;
 }
