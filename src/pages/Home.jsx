@@ -1,7 +1,9 @@
 export default function Home() {
   return (
     <>
-      <h1 className="z-10 text-6xl"></h1>
+      <div className="py-32 px-10">
+        <h1>Home</h1>
+      </div>
     </>
   );
 }
