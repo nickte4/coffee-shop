@@ -1,7 +1,9 @@
 export default function FAQ() {
   return (
     <>
-      <h1>FAQ</h1>
+      <div className="pt-24 h-max">
+        <h1>FAQ</h1>
+      </div>
     </>
   );
 }

@@ -11,6 +11,7 @@ import Shop from "./pages/Shop";
 import Product from "./pages/Product";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/login" element={<Login />} />
             {/* add routes for each product based on id */}
             <Route path="/products/:id" element={<Product />} />
             <Route path="*" element={<Navigate to="/" />} />

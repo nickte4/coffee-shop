@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <>
-      <div className="py-32 px-10">
+      <div className="pt-24 h-max">
         <h1>About</h1>
       </div>
     </>

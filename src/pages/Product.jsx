@@ -9,5 +9,11 @@ export default function Product() {
   const product = products.find((item) => item.id === Number(id));
 
   console.log(product);
-  return <></>;
+  return (
+    <>
+      <div className="pt-24 h-max">
+        <h1>Product</h1>
+      </div>
+    </>
+  );
 }

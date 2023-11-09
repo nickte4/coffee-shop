@@ -1,3 +1,5 @@
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+
 export default function NavbarDesktop() {
   return (
     <>
@@ -19,6 +21,9 @@ export default function NavbarDesktop() {
           <li className="hover:border-b-2 border-primary hover:text-primary transition-all">
             <a href="/about">About</a>
           </li>
+          <a href="/login">
+            <PersonOutlineIcon />
+          </a>
         </ul>
       </div>
     </>
