@@ -1,16 +1,25 @@
 import Card from "../components/Card";
+import { Link } from "react-router-dom";
 import bestSellers from "../data/bestSellers";
 import newAdditions from "../data/newAdditions";
 
 export default function Home() {
   // grab best seller coffee bags from data
   const bestSellerCards = bestSellers.map((item) => {
-    return <Card key={item.id} {...item} />;
+    return (
+      <Link key={item.id} to={`/products/${item.id}`}>
+        <Card {...item} />
+      </Link>
+    );
   });
 
   // grab newest addition coffee bags from data
   const newAdditionCards = newAdditions.map((item) => {
-    return <Card key={item.id} {...item} />;
+    return (
+      <Link key={item.id} to={`/products/${item.id}`}>
+        <Card key={item.id} {...item} />;
+      </Link>
+    );
   });
 
   return (
