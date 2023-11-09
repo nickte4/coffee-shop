@@ -3,12 +3,20 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
+
   async function submit(e) {
     e.preventDefault();
-    const navigate = useNavigate();
 
     try {
       await axios
@@ -46,17 +54,13 @@ export default function Signup() {
             <input
               className="rounded-lg w-60 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
               type="email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              onChange={handleEmailChange}
               placeholder="Enter email..."
             />
             <input
               className="rounded-lg w-60 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
               type="password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
+              onChange={handlePasswordChange}
               placeholder="Enter password..."
             />
             <input
