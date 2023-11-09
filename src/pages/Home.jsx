@@ -12,10 +12,17 @@ export default function Home() {
             </button>
           </a>
         </div>
+        <h1 className="text-5xl my-12 ml-5">Best Sellers</h1>
+        <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background">
+          <Card image="/coffee-bag-1.png" price="14.99" reviewCount={3} />
+          <Card image="/coffee-bag-2.png" price="14.99" reviewCount={5} />
+          <Card image="/coffee-bag-5.png" price="14.99" reviewCount={7} />
+          <Card image="/coffee-bag-6.png" price="14.99" reviewCount={2} />
+        </div>
         <h1 className="text-5xl my-12 ml-5">Newest Additions</h1>
-        <div className="flex justify-content gap-5 bg-background">
-          <Card image="/coffee-bag-1.png" price="14.99" />
-          <Card image="/coffee-bag-2.png" price="14.99" />
+        <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background">
+          <Card image="/coffee-bag-3.png" price="14.99" reviewCount={10} />
+          <Card image="/coffee-bag-4.png" price="14.99" reviewCount={2} />
         </div>
       </div>
     </>

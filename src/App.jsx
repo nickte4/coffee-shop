@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="bg-background min-h-screen">
+      <div className="bg-background">
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
