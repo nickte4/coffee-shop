@@ -22,7 +22,7 @@ export default function NavbarDesktop() {
             <a href="/about">About</a>
           </li>
           <a href="/login">
-            <PersonOutlineIcon />
+            <PersonOutlineIcon fontSize="large" />
           </a>
         </ul>
       </div>

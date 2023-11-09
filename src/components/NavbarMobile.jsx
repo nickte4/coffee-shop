@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 export default function NavbarMobile() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function NavbarMobile() {
   return (
     <>
       {!menuOpen ? (
-        <div className="w-screen flex items-center justify-between transition-all fixed bg-background h-24 z-10 shadow-2xl mb-5">
+        <div className="w-screen flex items-center justify-evenly gap-10 transition-all fixed bg-background h-24 z-10 shadow-2xl mb-5">
           <MenuIcon
             onClick={toggleMenu}
             fontSize="large"
@@ -24,6 +25,10 @@ export default function NavbarMobile() {
               src="/coffee-icon.png"
               alt=""
             />
+          </a>
+
+          <a href="/login">
+            <PersonOutlineIcon fontSize="large" />
           </a>
         </div>
       ) : (
