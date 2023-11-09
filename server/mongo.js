@@ -1,5 +1,7 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
+import dotenv from "dotenv";
+dotenv.config();
+import mongoose from "mongoose";
+
 mongoose
   .connect(`${process.env.MONGO_CONNECTION_URI}`)
   .then(() => console.log("Connected to MongoDB"))
@@ -19,4 +21,4 @@ const userSchema = new mongoose.Schema({
 
 const collection = mongoose.model("users", userSchema);
 
-module.exports = collection;
+export default collection;

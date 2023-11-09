@@ -1,6 +1,6 @@
-const express = require("express");
-const collection = require("./mongo");
-const cors = require("cors");
+import express from "express";
+import collection from "./mongo.js";
+import cors from "cors";
 const app = express();
 
 app.use(express.json());
@@ -9,6 +9,7 @@ app.use(cors());
 
 // POST request to /api/login
 app.post("/api/login", cors(), async (req, res) => {
+  console.log("login attempt");
   const { email, password } = req.body;
 
   try {
@@ -25,6 +26,7 @@ app.post("/api/login", cors(), async (req, res) => {
 
 // POST request to /api/signup
 app.post("/api/signup", cors(), async (req, res) => {
+  console.log("signup attempt");
   const { email, password } = req.body;
   const data = {
     email: email,
@@ -37,7 +39,7 @@ app.post("/api/signup", cors(), async (req, res) => {
       res.json("exist");
     } else {
       res.json("not exist");
-      await collection.insertMany([data]);
+      await collection.insertMany(data);
     }
   } catch (e) {
     res.json("login error");
