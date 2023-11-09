@@ -1,6 +1,18 @@
 import Card from "../components/Card";
+import bestSellers from "../data/bestSellers";
+import newAdditions from "../data/newAdditions";
 
 export default function Home() {
+  // grab best seller coffee bags from data
+  const bestSellerCards = bestSellers.map((item) => {
+    return <Card key={item.id} {...item} />;
+  });
+
+  // grab newest addition coffee bags from data
+  const newAdditionCards = newAdditions.map((item) => {
+    return <Card key={item.id} {...item} />;
+  });
+
   return (
     <>
       <div className="pt-16 z-0 h-max font-roboto">
@@ -14,15 +26,11 @@ export default function Home() {
         </div>
         <h1 className="text-5xl my-12 ml-5">Best Sellers</h1>
         <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background">
-          <Card image="/coffee-bag-1.png" price="14.99" reviewCount={3} />
-          <Card image="/coffee-bag-2.png" price="14.99" reviewCount={5} />
-          <Card image="/coffee-bag-5.png" price="14.99" reviewCount={7} />
-          <Card image="/coffee-bag-6.png" price="14.99" reviewCount={2} />
+          {bestSellerCards}
         </div>
         <h1 className="text-5xl my-12 ml-5">Newest Additions</h1>
         <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background">
-          <Card image="/coffee-bag-3.png" price="14.99" reviewCount={10} />
-          <Card image="/coffee-bag-4.png" price="14.99" reviewCount={2} />
+          {newAdditionCards}
         </div>
       </div>
     </>
