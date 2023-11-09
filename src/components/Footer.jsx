@@ -1,20 +1,40 @@
-import { useEffect, useState } from "react";
-import FooterMobile from "./FooterMobile";
-import FooterDesktop from "./FooterDesktop";
-
 export default function Footer() {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.innerWidth < 640;
-  });
-
-  function handleResize() {
-    window.innerWidth < 640 ? setIsMobile(true) : setIsMobile(false);
-  }
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-  }, []);
-
-  return <>{isMobile ? <FooterMobile /> : <FooterDesktop />}</>;
+  return (
+    <>
+      <div className="w-screen h-48 mt-10 flex justify-evenly items-center bg-secondary">
+        <div>
+          <a href="/">
+            <img
+              className="w-24 p-2 ml-3 bg-background rounded-full"
+              src="/coffee-icon.png"
+              alt=""
+            />
+            <h1 className="mt-2 text-lg">Untitled Coffee</h1>
+          </a>
+        </div>
+        <div>
+          <a href="/shop">
+            <h3 className="transition-all duration-200 text-2xl hover:border-b-2 w-max border-primary">
+              Shop
+            </h3>
+          </a>
+          <a href="/about">
+            <h3 className="transition-all duration-200 text-2xl hover:border-b-2 w-max border-primary border-spacing-2">
+              About
+            </h3>
+          </a>
+          <a href="/contact">
+            <h3 className="transition-all duration-200 text-2xl hover:border-b-2 w-max border-primary border-spacing-2">
+              Contact
+            </h3>
+          </a>
+          <a href="/faq">
+            <h3 className="transition-all duration-200 text-2xl hover:border-b-2 w-max border-primary border-spacing-2">
+              FAQ
+            </h3>
+          </a>
+        </div>
+      </div>
+    </>
+  );
 }

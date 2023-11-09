@@ -1,7 +1,7 @@
 export default function NavbarDesktop() {
   return (
     <>
-      <div className="w-screen transition-all fixed bg-background h-24 z-10 shadow-2xl mb-5">
+      <div className="w-screen transition-all duration-300 fixed bg-background h-24 z-10 shadow-2xl mb-5">
         <ul className="flex justify-evenly content-center items-center my-4 text-2xl w-screen">
           <a href="/">
             <img

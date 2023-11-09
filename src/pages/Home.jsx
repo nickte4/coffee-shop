@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="pt-16 z-0 h-max font-roboto">
+      <div className="pt-24 z-0 h-max font-roboto">
         <div className="relative">
           <img className="w-screen" src="/home-image.jpg" alt="coffee image" />
           <a href="/shop">
@@ -42,7 +42,7 @@ export default function Home() {
         <h1 className="text-5xl my-12 ml-5 bg-primary text-white w-max p-5 rounded-lg">
           Newest Additions
         </h1>
-        <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background mx-5">
+        <div className="grid grid-rows-1 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background mx-5">
           {newAdditionCards}
         </div>
       </div>
