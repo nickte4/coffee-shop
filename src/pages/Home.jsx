@@ -24,12 +24,16 @@ export default function Home() {
             </button>
           </a>
         </div>
-        <h1 className="text-5xl my-12 ml-5">Best Sellers</h1>
-        <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background">
+        <h1 className="text-5xl my-12 ml-5 bg-primary text-white w-max p-5 rounded-lg">
+          Best Sellers
+        </h1>
+        <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background mx-5">
           {bestSellerCards}
         </div>
-        <h1 className="text-5xl my-12 ml-5">Newest Additions</h1>
-        <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background">
+        <h1 className="text-5xl my-12 ml-5 bg-primary text-white w-max p-5 rounded-lg">
+          Newest Additions
+        </h1>
+        <div className="grid grid-rows-2 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background mx-5">
           {newAdditionCards}
         </div>
       </div>
