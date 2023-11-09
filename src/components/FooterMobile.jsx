@@ -1,7 +1,9 @@
 export default function FooterMobile() {
   return (
     <>
-      <h1>footer mobile</h1>
+      <div className="w-screen h-48 bg-secondary">
+        <h1>mobile</h1>
+      </div>
     </>
   );
 }

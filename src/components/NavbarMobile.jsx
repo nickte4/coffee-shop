@@ -1,7 +1,6 @@
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import LocalCafeIcon from "@mui/icons-material/LocalCafe";
 
 export default function NavbarMobile() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,16 +12,17 @@ export default function NavbarMobile() {
   return (
     <>
       {!menuOpen ? (
-        <div className="w-screen transition-all fixed bg-background h-24 z-10 shadow-2xl mb-5">
+        <div className="w-screen flex items-center justify-between transition-all fixed bg-background h-24 z-10 shadow-2xl mb-5">
           <MenuIcon
             onClick={toggleMenu}
             fontSize="large"
             className="m-8 cursor-pointer text-gray-600 hover:text-black rounded-full"
           />
           <a href="/">
-            <LocalCafeIcon
-              fontSize="large"
-              className="hover:text-primary transition-all fixed right-10 top-8"
+            <img
+              className="w-16 p-2 mr-10 bg-secondary rounded-full"
+              src="/coffee-icon.png"
+              alt=""
             />
           </a>
         </div>
