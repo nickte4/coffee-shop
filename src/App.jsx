@@ -10,7 +10,7 @@ import About from "./pages/About";
 import Shop from "./pages/Shop";
 import Product from "./pages/Product";
 import Navbar from "./components/Navbar";
-import products from "./data/products";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
           </Routes>
         </Router>
       </div>
+      <Footer />
     </>
   );
 }
