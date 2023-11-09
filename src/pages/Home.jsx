@@ -17,7 +17,7 @@ export default function Home() {
   const newAdditionCards = newAdditions.map((item) => {
     return (
       <Link key={item.id} to={`/products/${item.id}`}>
-        <Card key={item.id} {...item} />;
+        <Card key={item.id} {...item} />
       </Link>
     );
   });
