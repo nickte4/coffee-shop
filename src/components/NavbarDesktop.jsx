@@ -36,11 +36,17 @@ export default function NavbarDesktop() {
           </li>
           {loggedIn ? (
             <a href="/profile">
-              <PersonOutlineIcon fontSize="large" />
+              <PersonOutlineIcon
+                className="hover:border-b-2 hover:text-primary border-primary transition-all duration-300"
+                fontSize="large"
+              />
             </a>
           ) : (
             <a href="/login">
-              <PersonOutlineIcon fontSize="large" />
+              <PersonOutlineIcon
+                className="hover:border-b-2 hover:text-primary border-primary transition-all duration-300"
+                fontSize="large"
+              />
             </a>
           )}
         </ul>
