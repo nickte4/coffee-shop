@@ -2,6 +2,7 @@ export default [
   {
     id: 1,
     name: "Roasted Cacao Delight",
+    desc: "Indulge in the rich and velvety experience of our Roasted Cacao Delight coffee, where the bold flavors of expertly roasted beans meet the enchanting allure of hand-roasted cacao. Unleash your taste buds with the harmonious blend of premium Arabica beans and the deep, satisfying notes of roasted cacao in our Roasted Cacao Delight coffee bag, a delightful treat for true coffee connoisseurs. The Roasted Cacao Delight brings together the warmth of meticulously roasted coffee beans and the luxurious touch of cacao, creating a fusion that transcends ordinary coffee into a velvety, chocolate-infused masterpiece. Elevate your coffee experience to new heights with Roasted Cacao Delight, where every sip unveils the perfect balance between the boldness of coffee and the sweet, enchanting undertones of cacao. Indulge in the exquisite dance of flavors with our Roasted Cacao Delight, a coffee blend that promises to captivate your senses with its deep, chocolate-infused allure.",
     size: "12oz",
     price: 14.99,
     reviewCount: 5,
@@ -10,6 +11,7 @@ export default [
   {
     id: 2,
     name: "Mint Chocolate Chill",
+    desc: "Immerse yourself in the refreshing embrace of Mint Chocolate Chill, a unique coffee blend that combines the invigorating coolness of mint with the indulgent richness of chocolate for a delightful and revitalizing experience. Mint Chocolate Chill takes your taste buds on a journey with its invigorating minty freshness and the comforting undertones of smooth chocolate, creating a harmonious balance that's perfect for any time of the day. Start your day on a cool note with Mint Chocolate Chill, where the invigorating burst of mint melds seamlessly with the velvety richness of chocolate, delivering a refreshing pick-me-up in every sip. Escape into a world of cool indulgence with Mint Chocolate Chill, a coffee blend that masterfully marries the rejuvenating properties of mint with the timeless allure of chocolate, leaving you feeling revitalized and satisfied. Mint Chocolate Chill is the epitome of relaxation in a cup, offering a unique and refreshing twist to your coffee routine, making every sip an invigorating moment of bliss.",
     size: "12oz",
     price: 14.99,
     reviewCount: 2,
@@ -18,6 +20,7 @@ export default [
   {
     id: 3,
     name: "Vanilla Caramel Temptation",
+    desc: "Succumb to the allure of Vanilla Caramel Temptation, where the sweet sophistication of vanilla meets the rich and indulgent notes of caramel, creating a coffee blend that's impossible to resist. Unleash your inner gourmand with Vanilla Caramel Temptation, a tantalizing coffee experience that seduces your palate with the smooth sweetness of vanilla and the alluring richness of caramel. Elevate your coffee ritual with the irresistible charm of Vanilla Caramel Temptation, a blend that transforms your ordinary cup into a decadent treat, leaving you enchanted with every sip. Imbibe in the velvety warmth of Vanilla Caramel Temptation, where the seductive essence of vanilla melds with the luxurious embrace of caramel, resulting in a coffee that's both comforting and captivating. Indulge in the ultimate coffee temptation with Vanilla Caramel Temptation, a blend that invites you to savor the exquisite interplay of vanilla and caramel, creating a symphony of flavors that lingers on your palate.",
     size: "12oz",
     price: 14.99,
     reviewCount: 10,
@@ -26,6 +29,7 @@ export default [
   {
     id: 4,
     name: "Cinnamon Swirl Sensation",
+    desc: "Embark on a sensory journey with Cinnamon Swirl Sensation, a coffee blend that entices with the aromatic allure of cinnamon, creating a warm and inviting experience in every cup. Let the comforting essence of cinnamon envelop your senses in Cinnamon Swirl Sensation, a coffee blend that combines the robust flavors of freshly roasted beans with the nostalgic charm of cinnamon swirls. Start your day with the cozy embrace of Cinnamon Swirl Sensation, where the subtle spiciness of cinnamon intertwines with the rich and satisfying notes of freshly brewed coffee. Experience the magic of Cinnamon Swirl Sensation, a coffee blend that captures the essence of a classic bakery treat, offering a comforting and aromatic escape in every sip. Transform your coffee routine into a delightful ritual with Cinnamon Swirl Sensation, a blend that brings the sweet and spicy symphony of cinnamon to your cup, ensuring a sensory adventure with each and every pour.",
     size: "12oz",
     price: 14.99,
     reviewCount: 8,
@@ -34,6 +38,7 @@ export default [
   {
     id: 5,
     name: "Sunny Mocha Shine",
+    desc: "Illuminate your mornings with Sunny Mocha Shine, a radiant coffee blend that marries the bold richness of mocha with the sunny brightness of carefully selected coffee beans, promising a burst of flavor with every sip. Revel in the brilliance of Sunny Mocha Shine, where the harmonious pairing of luscious mocha and sun-kissed coffee beans creates a dazzling symphony of flavors that brightens your day. Start your day on a shining note with Sunny Mocha Shine, a coffee blend that combines the invigorating energy of sunlit mornings with the timeless allure of velvety mocha, creating a truly delightful experience. Sunny Mocha Shine encapsulates the spirit of a sunny day in a cup, infusing your palate with the perfect blend of bright coffee beans and the indulgent richness of mocha, leaving you refreshed and energized. Experience the radiance of Sunny Mocha Shine, a coffee blend that brings together the best of both worlds – the vibrant energy of sunshine and the comforting warmth of luscious mocha – ensuring each sip is a moment of pure delight.",
     size: "12oz",
     price: 14.99,
     reviewCount: 12,
@@ -42,6 +47,7 @@ export default [
   {
     id: 6,
     name: "Leafy Green Refreshment",
+    desc: "Immerse yourself in the rejuvenating embrace of Leafy Green Refreshment, a coffee blend that harmonizes the invigorating essence of leafy greens with the robust flavors of freshly roasted beans for a revitalizing experience. Transform your coffee break into a revitalizing ritual with Leafy Green Refreshment, where the crisp and refreshing notes of leafy greens elevate the classic coffee experience to a whole new level. Wake up your senses with Leafy Green Refreshment, a coffee blend that infuses the vibrancy of green leaves with the boldness of expertly roasted beans, ensuring a cup that's both energizing and satisfying. Embrace the natural goodness of Leafy Green Refreshment, a coffee blend that invites you to savor the refreshing taste of leafy greens while indulging in the deep and invigorating flavors of your favorite brew. Rejuvenate your day with the invigorating and wholesome combination of Leafy Green Refreshment, making each sip a moment of pure refreshment and satisfaction.",
     size: "12oz",
     price: 14.99,
     reviewCount: 2,
