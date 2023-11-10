@@ -11,6 +11,9 @@ function generateRandomString() {
   return Math.random().toString(36).slice(2);
 }
 
+/* paste this in console to clear cookies */
+// document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+
 // POST request to /api/login
 app.post("/api/login", cors(), async (req, res) => {
   console.log("login attempt");

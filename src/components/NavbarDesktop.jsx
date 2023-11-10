@@ -1,6 +1,17 @@
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import { useState, useEffect } from "react";
 
 export default function NavbarDesktop() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  // check if user is logged in
+  useEffect(() => {
+    // check if access token cookie exists
+    if (document.cookie.includes("access_token")) {
+      setLoggedIn(true);
+    }
+  }, []);
+
   return (
     <>
       <div className="w-screen transition-all duration-300 fixed bg-background h-24 z-10 shadow-2xl mb-5">
@@ -21,9 +32,15 @@ export default function NavbarDesktop() {
           <li className="hover:border-b-2 border-primary hover:text-primary transition-all">
             <a href="/about">About</a>
           </li>
-          <a href="/login">
-            <PersonOutlineIcon fontSize="large" />
-          </a>
+          {loggedIn ? (
+            <a href="/profile">
+              <PersonOutlineIcon fontSize="large" />
+            </a>
+          ) : (
+            <a href="/login">
+              <PersonOutlineIcon fontSize="large" />
+            </a>
+          )}
         </ul>
       </div>
     </>

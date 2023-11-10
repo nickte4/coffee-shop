@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 export default function NavbarMobile() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
+  // check if user is logged in
+  useEffect(() => {
+    // check if access token cookie exists
+    if (document.cookie.includes("access_token")) {
+      setLoggedIn(true);
+    }
+  }, []);
+
+  // toggles menu open and closed
   function toggleMenu() {
     setMenuOpen((prevMenuOpen) => !prevMenuOpen);
   }
@@ -26,10 +36,15 @@ export default function NavbarMobile() {
               alt=""
             />
           </a>
-
-          <a href="/login">
-            <PersonOutlineIcon fontSize="large" />
-          </a>
+          {loggedIn ? (
+            <a href="/profile">
+              <PersonOutlineIcon fontSize="large" />
+            </a>
+          ) : (
+            <a href="/login">
+              <PersonOutlineIcon fontSize="large" />
+            </a>
+          )}
         </div>
       ) : (
         <div className="top-0 left-0 transition-all bg-background fixed shadow-2xl w-1/3 h-screen z-20">
