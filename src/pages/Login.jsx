@@ -37,7 +37,10 @@ export default function Login() {
           if (res.data.emailExists && res.data.passwordMatches) {
             // add cookie to browser on log in
             document.cookie = "access_token = " + res.data.accessToken;
+            // navigate to home page
             navigate("/");
+            // add email to session storage on log in
+            sessionStorage.setItem("email", email);
           } else if (res.data.emailExists && !res.data.passwordMatches) {
             // if the password is incorrect, alert the user
             alert("Password incorrect. Try again.");

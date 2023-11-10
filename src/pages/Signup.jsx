@@ -57,9 +57,12 @@ export default function Signup() {
             alert("Can't sign up. User already exists.");
           } else {
             // user does not exist, successful sign up
+            // navigate to home page
             navigate("/");
             // add cookie to browser on sign up
             document.cookie = "access_token = " + res.data;
+            // add email to session storage on sign up
+            sessionStorage.setItem("email", email);
           }
         })
         .catch((err) => {
