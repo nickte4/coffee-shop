@@ -58,12 +58,14 @@ export default function Contact() {
           Contact
         </h1>
         <div className="flex flex-col lg:flex-row items-center">
-          <img
-            className="w-screen h-96 object-cover lg:h-auto lg:object-contain lg:w-1/2"
-            src="/contact-image.jpg"
-            alt="contact image"
-          />
-          <div className="mb-10">
+          <div className="overflow-hidden lg:w-1/2">
+            <img
+              className="hover:scale-110 duration-700 transition-all w-screen h-96 lg:h-auto object-cover"
+              src="/contact-image.jpg"
+              alt="contact image"
+            />
+          </div>
+          <div className="mb-10 lg:w-1/2">
             <form
               action="POST"
               className="flex flex-col items-center lg:items-start mt-10 lg:mt-0 lg:ml-20"
