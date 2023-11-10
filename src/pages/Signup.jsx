@@ -16,6 +16,10 @@ export default function Signup() {
     setPassword(event.target.value);
   }
 
+  function handleConfirmPasswordChange(event) {
+    setConfirmPassword(event.target.value);
+  }
+
   // handles sign up form submission
   async function submit(e) {
     e.preventDefault();
@@ -75,7 +79,7 @@ export default function Signup() {
             <input
               className="rounded-lg w-60 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
               type="password"
-              onChange={handlePasswordChange}
+              onChange={handleConfirmPasswordChange}
               placeholder="Confirm password..."
             />
             <input
