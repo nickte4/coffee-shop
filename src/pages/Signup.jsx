@@ -6,6 +6,7 @@ export default function Signup() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   function handleEmailChange(event) {
     setEmail(event.target.value);
@@ -15,9 +16,17 @@ export default function Signup() {
     setPassword(event.target.value);
   }
 
+  // handles sign up form submission
   async function submit(e) {
     e.preventDefault();
 
+    // check if passwords match
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    // add email and password to database
     try {
       await axios
         .post("http://localhost:8000/api/signup", {
@@ -34,7 +43,7 @@ export default function Signup() {
           }
         })
         .catch((err) => {
-          alert("Can't log in. User does not exist.");
+          alert("Can't sign in. Error occurred.");
           console.log(err);
         });
     } catch (e) {
@@ -48,7 +57,7 @@ export default function Signup() {
         <div className="my-40 mx-auto h-96 w-80 bg-secondary rounded-3xl">
           <h1 className="pt-10 text-center text-5xl text-white">Sign up</h1>
           <form
-            className="mt-12 flex flex-col justify-center items-center gap-5"
+            className="mt-4 flex flex-col justify-center items-center gap-5"
             action="POST"
           >
             <input
@@ -64,13 +73,19 @@ export default function Signup() {
               placeholder="Enter password..."
             />
             <input
+              className="rounded-lg w-60 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              type="password"
+              onChange={handlePasswordChange}
+              placeholder="Confirm password..."
+            />
+            <input
               className="bg-white rounded-2xl w-20 h-12 cursor-pointer hover:bg-accent hover:text-white"
               type="submit"
               value="Sign up"
               onClick={submit}
             />
           </form>
-          <h1 className="mt-10 text-center text-white">
+          <h1 className="mt-4 text-center text-white">
             Already a user?{" "}
             <Link
               className="text-primary hover:underline underline-offset-4"

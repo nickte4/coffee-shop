@@ -1,6 +1,7 @@
 import express from "express";
 import collection from "./mongo.js";
 import cors from "cors";
+import { trusted } from "mongoose";
 const app = express();
 
 app.use(express.json());
@@ -11,14 +12,19 @@ app.use(cors());
 app.post("/api/login", cors(), async (req, res) => {
   console.log("login attempt");
   const { email, password } = req.body;
+  const accountData = {
+    emailExists: false,
+    passwordMatches: false,
+  };
 
   try {
     const emailExists = await collection.findOne({ email: email });
     if (emailExists) {
-      res.json("exist");
-    } else {
-      res.json("not exist");
+      accountData.emailExists = true;
+      // check password match
+      if (emailExists.password === password) accountData.passwordMatches = true;
     }
+    res.json(accountData);
   } catch (e) {
     res.json("login error");
   }

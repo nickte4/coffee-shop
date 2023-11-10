@@ -27,15 +27,18 @@ export default function Login() {
         })
         .then((res) => {
           // if the user exists, navigate to the home page
-          if (res.data == "exist") {
+          if (res.data.emailExists && res.data.passwordMatches) {
             navigate("/");
+          } else if (res.data.emailExists && !res.data.passwordMatches) {
+            // if the password is incorrect, alert the user
+            alert("Password incorrect. Try again.");
           } else {
             // if the user does not exist, alert the user
-            alert("Can't log in. User does not exist.");
+            alert("Email not found. Try again.");
           }
         })
         .catch((err) => {
-          alert("Can't log in. User does not exist.");
+          alert("Can't log in. Error occurred.");
           console.log(err);
         });
     } catch (e) {
