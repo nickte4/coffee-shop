@@ -9,6 +9,8 @@ export default function NavbarDesktop() {
     // check if access token cookie exists
     if (document.cookie.includes("access_token")) {
       setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
     }
   }, []);
 

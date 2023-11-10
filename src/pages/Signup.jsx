@@ -59,6 +59,8 @@ export default function Signup() {
             // user does not exist, successful sign up
             // navigate to home page
             navigate("/");
+            // reload page
+            navigate(0);
             // add cookie to browser on sign up
             document.cookie = "access_token = " + res.data;
             // add email to session storage on sign up

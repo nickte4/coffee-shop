@@ -39,6 +39,8 @@ export default function Login() {
             document.cookie = "access_token = " + res.data.accessToken;
             // navigate to home page
             navigate("/");
+            // reload page
+            navigate(0);
             // add email to session storage on log in
             sessionStorage.setItem("email", email);
           } else if (res.data.emailExists && !res.data.passwordMatches) {
