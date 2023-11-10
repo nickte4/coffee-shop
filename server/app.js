@@ -1,5 +1,5 @@
 import express from "express";
-import collection from "./mongo.js";
+import { users, contacts } from "./mongo.js";
 import cors from "cors";
 const app = express();
 
@@ -14,6 +14,25 @@ function generateRandomString() {
 /* paste this in console to clear cookies */
 // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
 
+// POST request to /api/contacts
+app.post("/api/contact", cors(), async (req, res) => {
+  console.log("contact send attempt");
+  const { name, email, subject, message } = req.body;
+  const data = {
+    name: name,
+    email: email,
+    subject: subject,
+    message: message,
+  };
+
+  try {
+    await contacts.insertMany(data);
+    return res.json("contact form sent");
+  } catch (e) {
+    return res.json("send contacts error");
+  }
+});
+
 // POST request to /api/login
 app.post("/api/login", cors(), async (req, res) => {
   console.log("login attempt");
@@ -25,7 +44,7 @@ app.post("/api/login", cors(), async (req, res) => {
 
   try {
     // get account from database
-    const account = await collection.findOne({ email: email });
+    const account = await users.findOne({ email: email });
     if (account) {
       accountData.emailExists = true;
       // check password match
@@ -50,14 +69,14 @@ app.post("/api/signup", cors(), async (req, res) => {
   };
 
   try {
-    const emailExists = await collection.findOne({ email: email });
+    const emailExists = await users.findOne({ email: email });
     if (emailExists) {
       // can't sign up, email already exists
       return res.json("exist");
     } else {
       // generate access token
       data.accessToken = generateRandomString();
-      await collection.insertMany(data);
+      await users.insertMany(data);
       return res.json(data.accessToken);
     }
   } catch (e) {

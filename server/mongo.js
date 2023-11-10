@@ -25,6 +25,26 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const collection = mongoose.model("users", userSchema);
+const contactSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  subject: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
+});
 
-export default collection;
+const users = mongoose.model("users", userSchema);
+const contacts = mongoose.model("contacts", contactSchema);
+
+export { users, contacts };

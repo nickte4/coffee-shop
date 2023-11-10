@@ -1,5 +1,5 @@
-import { set } from "mongoose";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -25,6 +25,28 @@ export default function Contact() {
 
   async function submit(e) {
     e.preventDefault();
+
+    // try to send contact form
+    try {
+      await axios
+        .post("http://localhost:8000/api/contact", {
+          name,
+          email,
+          subject,
+          message,
+        })
+        .then((res) => {
+          // if the contact form was sent, alert the user
+          if (res.data === "contact form sent") {
+            alert("Message sent!");
+          } else {
+            // if the contact form was not sent, alert the user
+            alert("Message not sent. Try again.");
+          }
+        });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
