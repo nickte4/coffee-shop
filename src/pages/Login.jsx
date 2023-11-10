@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   function handleEmailChange(event) {
     setEmail(event.target.value);
@@ -13,6 +16,10 @@ export default function Login() {
 
   function handlePasswordChange(event) {
     setPassword(event.target.value);
+  }
+
+  function handleShowPasswordChange() {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   }
 
   async function submit(e) {
@@ -61,12 +68,38 @@ export default function Login() {
               onChange={handleEmailChange}
               placeholder="Enter email..."
             />
-            <input
-              className="rounded-lg w-60 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
-              type="password"
-              onChange={handlePasswordChange}
-              placeholder="Enter password..."
-            />
+            <div className="relative">
+              {/* if showPassword is true, show the password, else show the password as a series of dots */}
+              {!showPassword ? (
+                <>
+                  <input
+                    className="rounded-lg w-60 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                    type="password"
+                    onChange={handlePasswordChange}
+                    placeholder="Enter password..."
+                  />
+                  <VisibilityIcon
+                    className="absolute right-3 top-1 text-gray-400 cursor-pointer"
+                    fontSize="large"
+                    onClick={handleShowPasswordChange}
+                  />
+                </>
+              ) : (
+                <>
+                  <input
+                    className="rounded-lg w-60 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                    type="text"
+                    onChange={handlePasswordChange}
+                    placeholder="Enter password..."
+                  />
+                  <VisibilityOffIcon
+                    className="absolute right-3 top-1 text-gray-400 cursor-pointer"
+                    fontSize="large"
+                    onClick={handleShowPasswordChange}
+                  />
+                </>
+              )}
+            </div>
             <input
               className="bg-white rounded-2xl w-20 h-12 cursor-pointer hover:bg-accent hover:text-white"
               type="submit"
