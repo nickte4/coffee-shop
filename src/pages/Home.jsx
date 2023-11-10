@@ -42,7 +42,7 @@ export default function Home() {
         <h1 className="text-5xl my-12 ml-5 bg-primary text-white w-max p-5 rounded-lg">
           Newest Additions
         </h1>
-        <div className="grid grid-rows-1 grid-cols-2 place-items-center lg:flex lg:justify-evenly lg:content-center gap-10 bg-background mx-5">
+        <div className="grid grid-rows-1 grid-cols-2 place-items-center mb-20 lg:flex lg:justify-evenly lg:content-center gap-10 bg-background mx-5">
           {newAdditionCards}
         </div>
       </div>

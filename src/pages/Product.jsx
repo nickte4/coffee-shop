@@ -11,7 +11,7 @@ export default function Product() {
   return (
     <>
       <div className="pt-24 h-max">
-        <div className="lg:flex lg:items-start lg:gap-10">
+        <div className="lg:flex lg:items-start lg:gap-10 mb-10">
           <img
             className="w-96 mx-auto lg:ml-32 mt-20 lg:mt-24 rounded-3xl"
             src={`/${product.coverImg}`}
