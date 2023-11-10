@@ -65,6 +65,9 @@ export default function NavbarMobile() {
             <li className="transition-all hover:scale-110 hover:translate-x-5 hover:text-black">
               <a href="/about">About</a>
             </li>
+            <li className="transition-all hover:scale-110 hover:translate-x-5 hover:text-black">
+              <a href="/contact">Contact</a>
+            </li>
           </ul>
         </div>
       )}
