@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <div className="w-screen h-48 mt-10 flex justify-evenly items-center bg-secondary">
+      <div className="w-screen h-48 flex justify-evenly items-center bg-secondary">
         <div>
           <a href="/">
             <img
