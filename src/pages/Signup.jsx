@@ -5,6 +5,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 
 export default function Signup() {
+  document.title = "Untitled Coffee | Sign Up";
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

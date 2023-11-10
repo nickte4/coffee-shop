@@ -1,4 +1,5 @@
 export default function Shop() {
+  document.title = "Untitled Coffee | Shop";
   return (
     <>
       <div className="pt-24 h-max">

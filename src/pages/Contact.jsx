@@ -7,6 +7,8 @@ export default function Contact() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
+  document.title = "Untitled Coffee | Contact";
+
   function handleNameChange(event) {
     setName(event.target.value);
   }

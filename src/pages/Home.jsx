@@ -4,6 +4,7 @@ import bestSellers from "../data/bestSellers";
 import newAdditions from "../data/newAdditions";
 
 export default function Home() {
+  document.title = "Untitled Coffee | Home";
   // grab best seller coffee bags from data
   const bestSellerCards = bestSellers.map((item) => {
     return (

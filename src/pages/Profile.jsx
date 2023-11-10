@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
+  document.title = "Untitled Coffee | Profile";
   const navigate = useNavigate();
 
   function logOut() {
