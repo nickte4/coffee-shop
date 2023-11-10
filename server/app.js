@@ -1,12 +1,15 @@
 import express from "express";
 import collection from "./mongo.js";
 import cors from "cors";
-import { trusted } from "mongoose";
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+function generateRandomString() {
+  return Math.random().toString(36).slice(2);
+}
 
 // POST request to /api/login
 app.post("/api/login", cors(), async (req, res) => {
@@ -18,15 +21,19 @@ app.post("/api/login", cors(), async (req, res) => {
   };
 
   try {
-    const emailExists = await collection.findOne({ email: email });
-    if (emailExists) {
+    // get account from database
+    const account = await collection.findOne({ email: email });
+    if (account) {
       accountData.emailExists = true;
       // check password match
-      if (emailExists.password === password) accountData.passwordMatches = true;
+      if (account.password === password) {
+        accountData.passwordMatches = true;
+        accountData.accessToken = account.accessToken;
+      }
     }
-    res.json(accountData);
+    return res.json(accountData);
   } catch (e) {
-    res.json("login error");
+    return res.json("login error");
   }
 });
 
@@ -42,13 +49,16 @@ app.post("/api/signup", cors(), async (req, res) => {
   try {
     const emailExists = await collection.findOne({ email: email });
     if (emailExists) {
-      res.json("exist");
+      // can't sign up, email already exists
+      return res.json("exist");
     } else {
-      res.json("not exist");
+      // generate access token
+      data.accessToken = generateRandomString();
       await collection.insertMany(data);
+      return res.json(data.accessToken);
     }
   } catch (e) {
-    res.json("login error");
+    return res.json("login error");
   }
 });
 

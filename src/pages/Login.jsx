@@ -35,6 +35,8 @@ export default function Login() {
         .then((res) => {
           // if the user exists, navigate to the home page
           if (res.data.emailExists && res.data.passwordMatches) {
+            // add cookie to browser on log in
+            document.cookie = "access_token = " + res.data.accessToken;
             navigate("/");
           } else if (res.data.emailExists && !res.data.passwordMatches) {
             // if the password is incorrect, alert the user

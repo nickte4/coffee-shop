@@ -58,6 +58,8 @@ export default function Signup() {
           } else {
             // user does not exist, successful sign up
             navigate("/");
+            // add cookie to browser on sign up
+            document.cookie = "access_token = " + res.data;
           }
         })
         .catch((err) => {

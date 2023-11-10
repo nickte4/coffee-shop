@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  accessToken: {
+    type: String,
+    required: true,
+  },
 });
 
 const collection = mongoose.model("users", userSchema);
