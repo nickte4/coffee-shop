@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Cart from "./Cart";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -38,6 +39,7 @@ export default function NavbarMobile() {
               alt=""
             />
           </a>
+          <Cart />
           {loggedIn ? (
             <a href="/profile">
               <PersonOutlineIcon fontSize="large" />

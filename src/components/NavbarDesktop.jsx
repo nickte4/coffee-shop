@@ -1,4 +1,5 @@
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import Cart from "./Cart";
 import { useState, useEffect } from "react";
 
 export default function NavbarDesktop() {
@@ -34,6 +35,7 @@ export default function NavbarDesktop() {
           <li className="hover:border-b-2 border-primary hover:text-primary transition-all">
             <a href="/about">About</a>
           </li>
+          <Cart />
           {loggedIn ? (
             <a href="/profile">
               <PersonOutlineIcon
