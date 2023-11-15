@@ -84,7 +84,7 @@ export default function Cart() {
               </h1>
               <div className="mt-5 flex flex-col justify-center items-center">
                 <h1 className="text-4xl text-center">Shopping Cart</h1>
-                <div className="mt-1 border-black border w-5/6"></div>
+                <div className="mt-1 border-black border w-full"></div>
                 <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
               </div>
               <div className="relative left-5 lg:left-1/4 mt-3 mb-2 text-2xl flex gap-5">

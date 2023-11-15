@@ -8,6 +8,18 @@ export default function Checkout() {
     JSON.parse(localStorage.getItem("cart") || "[]")
   );
 
+  function handlePay() {
+    emptyCart(); // empty cart
+    alert("Thank you for your purchase!");
+  }
+
+  // empties cart
+  function emptyCart() {
+    localStorage.removeItem("cart");
+    setCart([]);
+  }
+
+  // display message if no items in cart
   const noItemsInCart = () => {
     return (
       <>
@@ -21,6 +33,7 @@ export default function Checkout() {
     );
   };
 
+  // get total price of cart
   const cartTotalPrice =
     cart.length > 0
       ? cart.reduce((acc, item) => {
@@ -55,7 +68,10 @@ export default function Checkout() {
           <>
             <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
             <div className="my-10 flex justify-center items-center">
-              <button className="transition-all text-4xl border border-black rounded-2xl p-5 hover:scale-110 hover:bg-primary hover:text-white">
+              <button
+                onClick={handlePay}
+                className="transition-all text-4xl border border-black rounded-2xl p-5 hover:scale-110 hover:bg-primary hover:text-white"
+              >
                 Pay Now: ${cartTotalPrice.toFixed(2)}
               </button>
             </div>
