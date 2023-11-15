@@ -87,7 +87,7 @@ export default function Cart() {
                 <div className="mt-1 border-black border w-5/6"></div>
                 <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
               </div>
-              <div className="relative left-5 mt-3 mb-2 text-2xl flex gap-5">
+              <div className="relative left-5 lg:left-1/4 mt-3 mb-2 text-2xl flex gap-5">
                 <a href="/checkout">
                   <button className="border border-black rounded-2xl p-2 hover:bg-primary hover:text-white">
                     Go To Checkout
