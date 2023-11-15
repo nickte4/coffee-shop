@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import products from "../data/products";
 import Quantity from "../components/Quantity";
+import { trusted } from "mongoose";
 
 export default function Product() {
   const [count, setCount] = useState(1);
+  const [showItemAddedModal, setShowItemAddedModal] = useState(false);
 
   // increment quantity
   function incrementCount() {
@@ -22,6 +24,14 @@ export default function Product() {
     });
   }
 
+  // show item was added modal for 2 seconds
+  function handleShowItemAddedModal() {
+    setShowItemAddedModal(true);
+    setTimeout(() => {
+      setShowItemAddedModal(false);
+    }, 2000);
+  }
+
   document.title = "Untitled Coffee | Product";
   // get the product id from the url
   const { id } = useParams();
@@ -30,6 +40,8 @@ export default function Product() {
 
   // add item to cart
   function addItemToCart() {
+    // show item added modal
+    handleShowItemAddedModal();
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     // check if item is already in cart
     const itemInCart = cart.find((item) => item.productId === product.id);
@@ -79,6 +91,14 @@ export default function Product() {
                 increment={incrementCount}
                 decrement={decrementCount}
               />
+              {showItemAddedModal ? (
+                <div className="fixed left-1/4 top-40 w-1/2 h-1/6 bg-secondary rounded-lg text-center pt-8 text-4xl border-black border-2">
+                  <h1>
+                    Added {count} {product.name}
+                    {count > 1 ? "s" : ""}!
+                  </h1>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

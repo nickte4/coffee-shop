@@ -1,6 +1,7 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import CartList from "./CartList";
+import products from "../data/products";
 import { useState, useEffect } from "react";
 
 export default function Cart() {
@@ -8,6 +9,16 @@ export default function Cart() {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart") || "[]")
   );
+
+  const cartTotalPrice =
+    cart.length > 0
+      ? cart.reduce((acc, item) => {
+          const product = products.find(
+            (product) => product.id === item.productId
+          );
+          return acc + product.price * item.quantity;
+        }, 0) // 0 is the initial value of acc
+      : 0;
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart") || "[]"));
@@ -72,6 +83,9 @@ export default function Cart() {
                 <h1 className="text-4xl text-center">Shopping Cart</h1>
                 <div className="mt-1 border-black border w-5/6"></div>
                 <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
+              </div>
+              <div className="fixed bottom-5 right-10">
+                <h1>Total: ${Number(cartTotalPrice).toFixed(2)}</h1>
               </div>
             </div>
           </>

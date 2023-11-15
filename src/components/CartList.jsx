@@ -26,9 +26,12 @@ export default function CartList(props) {
               </h1>
             </a>
             <h1 className="text-lg">
-              <span className="text-sky-700">${product.price}</span> |{" "}
+              <span className="text-sky-700">${product.price}/ea</span> |{" "}
               <span className="opacity-50">{product.size}</span>
             </h1>
+            <span className="text-red-700 text-lg">
+              Total: ${(product.price * quantity).toFixed(2)}
+            </span>
             <div className="text-lg flex items-center gap-3 opacity-50">
               Quantity: {quantity}
               <DeleteOutlineIcon
