@@ -1,16 +1,50 @@
 import products from "../data/products";
 import CartList from "../components/CartList";
-import { useState, useEffect } from "react";
+import NoItemsInCart from "../components/NoItemsInCart";
+import NoAccountModal from "../components/NoAccountModal";
+import PaymentReceived from "../components/PaymentReceived";
+import { useState } from "react";
 
 export default function Checkout() {
   document.title = "Untitled Coffee | Checkout";
+  // get cart from local storage
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart") || "[]")
   );
+  // show no account modal if user is not logged in
+  const [showNoAccountModal, setShowNoAccountModal] = useState(false);
 
+  // show payment received modal
+  const [showPaymentReceivedModal, setShowPaymentReceivedModal] =
+    useState(false);
+
+  // closes no account modal
+  function handleCloseModal() {
+    setShowNoAccountModal(false);
+  }
+
+  // shows payment received modal and empties cart
+  function handleShowPaymentReceivedModal() {
+    setShowPaymentReceivedModal(true);
+    setTimeout(() => {
+      setShowPaymentReceivedModal(false);
+      emptyCart();
+    }, 2000);
+  }
+
+  // shows no account modal
+  function handleShowNoAccountModal() {
+    setShowNoAccountModal(true);
+  }
+
+  // handles pay based on whether user is logged in or not
   function handlePay() {
-    emptyCart(); // empty cart
-    alert("Thank you for your purchase!");
+    if (!document.cookie.includes("token")) {
+      handleShowNoAccountModal();
+    } else {
+      handleShowPaymentReceivedModal();
+      // TODO: send order to backend
+    }
   }
 
   // empties cart
@@ -18,20 +52,6 @@ export default function Checkout() {
     localStorage.removeItem("cart");
     setCart([]);
   }
-
-  // display message if no items in cart
-  const noItemsInCart = () => {
-    return (
-      <>
-        <h1 className="h-96 text-3xl text-center mt-52">
-          There are no items in the cart. <br /> Want to add some? {""}
-          <a className="text-accent hover:underline" href="/shop">
-            Head to the shop!
-          </a>
-        </h1>
-      </>
-    );
-  };
 
   // get total price of cart
   const cartTotalPrice =
@@ -63,7 +83,7 @@ export default function Checkout() {
           Checkout
         </h1>
         {cart.length === 0 ? (
-          noItemsInCart()
+          <NoItemsInCart />
         ) : (
           <>
             <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
@@ -75,6 +95,14 @@ export default function Checkout() {
                 Pay Now: ${cartTotalPrice.toFixed(2)}
               </button>
             </div>
+            {showPaymentReceivedModal && <PaymentReceived />}
+            {showNoAccountModal && (
+              <NoAccountModal
+                handleClose={handleCloseModal}
+                handlePay={handleShowPaymentReceivedModal}
+                emptyCart={emptyCart}
+              />
+            )}
           </>
         )}
       </div>
