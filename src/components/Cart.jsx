@@ -24,6 +24,18 @@ export default function Cart() {
     setCart([]);
   }
 
+  // remove item from cart
+  function removeItemFromCart(id) {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    // check if item is already in cart
+    const itemInCart = cart.find((item) => item.productId === id);
+    // remove it from cart, then add cart back
+    cart.splice(cart.indexOf(itemInCart), 1);
+    // save cart to local storage
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setCart(cart);
+  }
+
   return (
     <>
       <div>
@@ -59,7 +71,7 @@ export default function Cart() {
               <div className="mt-5 flex flex-col justify-center items-center">
                 <h1 className="text-4xl text-center">Shopping Cart</h1>
                 <div className="mt-1 border-black border w-5/6"></div>
-                <CartList cart={cart} />
+                <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
               </div>
             </div>
           </>
