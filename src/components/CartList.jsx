@@ -1,7 +1,8 @@
-import cart from "../data/cart";
 import products from "../data/products";
 
-export default function CartList() {
+export default function CartList(props) {
+  const cart = props.cart;
+
   /*   const product = products.find((item) => item.id === Number(id)); */
   const itemsInCart = cart.map((item) => {
     // get the product from the products data list
@@ -10,7 +11,7 @@ export default function CartList() {
     const quantity = item.quantity;
 
     return (
-      <>
+      <div key={item.productId}>
         <a href={`/products/${product.id}`}>
           <div className="hover:bg-accent transition-all border-b-2 border-black flex justify-center items-center p-5">
             <img
@@ -32,7 +33,7 @@ export default function CartList() {
             </div>
           </div>
         </a>
-      </>
+      </div>
     );
   });
 
