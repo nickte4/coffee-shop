@@ -91,14 +91,14 @@ export default function Product() {
                 increment={incrementCount}
                 decrement={decrementCount}
               />
-              {showItemAddedModal ? (
+              {showItemAddedModal && (
                 <div className="fixed left-1/4 top-40 w-1/2 h-1/6 bg-secondary rounded-lg text-center pt-8 text-4xl border-black border-2 p-5">
                   <h1>
                     Added {count} {product.name}
                     {count > 1 ? "s" : ""}!
                   </h1>
                 </div>
-              ) : null}
+              )}
             </div>
           </div>
         </div>
