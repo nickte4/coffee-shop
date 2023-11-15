@@ -3,6 +3,7 @@ import CartList from "../components/CartList";
 import NoItemsInCart from "../components/NoItemsInCart";
 import NoAccountModal from "../components/NoAccountModal";
 import PaymentReceived from "../components/PaymentReceived";
+import axios from "axios";
 import { useState } from "react";
 
 export default function Checkout() {
@@ -37,13 +38,37 @@ export default function Checkout() {
     setShowNoAccountModal(true);
   }
 
+  // send order to backend
+  async function sendOrder() {
+    // try to send order
+    try {
+      await axios
+        .post("http://localhost:8000/api/order", {
+          order: cart,
+          total: cartTotalPrice,
+          email: sessionStorage.getItem("email"),
+        })
+        .then((res) => {
+          // if the order was sent, alert the user
+          if (res.data === "order sent") {
+            handleShowPaymentReceivedModal();
+            return;
+          } else {
+            // if the order was not sent, alert the user
+            alert("Order not sent. Try again.");
+          }
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   // handles pay based on whether user is logged in or not
   function handlePay() {
     if (!document.cookie.includes("token")) {
       handleShowNoAccountModal();
     } else {
-      handleShowPaymentReceivedModal();
-      // TODO: send order to backend
+      sendOrder();
     }
   }
 

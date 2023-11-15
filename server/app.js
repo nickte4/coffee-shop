@@ -1,5 +1,5 @@
 import express from "express";
-import { users, contacts } from "./mongo.js";
+import { users, contacts, orders } from "./mongo.js";
 import cors from "cors";
 const app = express();
 
@@ -81,6 +81,41 @@ app.post("/api/signup", cors(), async (req, res) => {
     }
   } catch (e) {
     return res.json("login error");
+  }
+});
+
+// POST request to /api/order
+app.post("/api/order", cors(), async (req, res) => {
+  console.log("order attempt");
+  // get order data from request body
+  const { order, total, email } = req.body;
+  // create data Order object
+  const data = {
+    order: order,
+    total: total,
+    date: new Date().toLocaleString(),
+    status: "pending",
+    email: email,
+  };
+
+  try {
+    await orders.insertMany(data);
+    return res.json("order sent");
+  } catch (e) {
+    console.log(e);
+    return res.json("send order error");
+  }
+});
+
+// GET request to /api/orders, gets all orders under a user's email
+app.get("/api/orders", cors(), async (req, res) => {
+  console.log("get orders attempt");
+  const { email } = req.query;
+  try {
+    const orderData = await orders.find({ email: email });
+    return res.json(orderData);
+  } catch (e) {
+    return res.json("get orders error");
   }
 });
 

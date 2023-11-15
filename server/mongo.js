@@ -44,7 +44,31 @@ const contactSchema = new mongoose.Schema({
   },
 });
 
+const orderSchema = new mongoose.Schema({
+  order: {
+    type: Array,
+    required: true,
+  },
+  total: {
+    type: Number,
+    required: true,
+  },
+  date: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+});
+
 const users = mongoose.model("users", userSchema);
 const contacts = mongoose.model("contacts", contactSchema);
+const orders = mongoose.model("orders", orderSchema);
 
-export { users, contacts };
+export { users, contacts, orders };
