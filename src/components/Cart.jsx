@@ -67,7 +67,7 @@ export default function Cart() {
             />
             {/* black background to cover page when cart is open */}
             <div className="fixed left-0 top-0 w-full h-full select-none bg-black opacity-40"></div>
-            <div className="animate-slide-in-from-right border-black border-2 absolute w-1/3 h-large right-0 top-0 z-30 bg-secondary rounded-2xl">
+            <div className="animate-slide-in-from-right border-black border-2 fixed w-1/2 h-full right-0 top-0 z-30 bg-secondary rounded-2xl overflow-y-scroll">
               <CloseIcon
                 className="cursor-pointer opacity-30 hover:opacity-100 relative top-2 left-2"
                 fontSize="large"
@@ -84,7 +84,7 @@ export default function Cart() {
                 <div className="mt-1 border-black border w-5/6"></div>
                 <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
               </div>
-              <div className="fixed bottom-5 right-10">
+              <div className="relative left-1/2 mt-1 mb-2 text-2xl">
                 <h1>Total: ${Number(cartTotalPrice).toFixed(2)}</h1>
               </div>
             </div>

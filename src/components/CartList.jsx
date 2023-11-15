@@ -15,11 +15,11 @@ export default function CartList(props) {
       <div key={item.productId}>
         <div className="transition-all border-b-2 border-black flex justify-center items-center p-5">
           <img
-            className="w-1/4 rounded-lg"
+            className="w-1/3 rounded-lg"
             src={`/${product.coverImg}`}
             alt="product image"
           />
-          <div className="w-3/4 flex flex-col text-center first-letter:justify-center items-center">
+          <div className="w-2/3 flex flex-col text-center first-letter:justify-center items-center">
             <a href={`/products/${product.id}`}>
               <h1 className="hover:underline underline-offset-2">
                 {product.name}
