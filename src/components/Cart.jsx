@@ -66,7 +66,10 @@ export default function Cart() {
               onClick={toggleCart}
             />
             {/* black background to cover page when cart is open */}
-            <div className="fixed left-0 top-0 w-full h-full select-none bg-black opacity-40"></div>
+            <div
+              onClick={toggleCart}
+              className="fixed left-0 top-0 w-full h-full select-none bg-black opacity-40"
+            ></div>
             <div className="animate-slide-in-from-right border-black border-2 fixed w-1/2 h-full right-0 top-0 z-30 bg-secondary rounded-2xl overflow-y-scroll">
               <CloseIcon
                 className="cursor-pointer opacity-30 hover:opacity-100 relative top-2 left-2"
@@ -84,8 +87,16 @@ export default function Cart() {
                 <div className="mt-1 border-black border w-5/6"></div>
                 <CartList cart={cart} removeItemFromCart={removeItemFromCart} />
               </div>
-              <div className="relative left-1/2 mt-1 mb-2 text-2xl">
-                <h1>Total: ${Number(cartTotalPrice).toFixed(2)}</h1>
+              <div className="relative left-5 mt-3 mb-2 text-2xl flex gap-5">
+                <a href="/checkout">
+                  <button className="border border-black rounded-2xl p-2 hover:bg-primary hover:text-white">
+                    Go To Checkout
+                  </button>
+                </a>
+                <div className="text-lg">
+                  <h1>{cart.length} items</h1>
+                  <h1>Subtotal: ${Number(cartTotalPrice).toFixed(2)}</h1>
+                </div>
               </div>
             </div>
           </>

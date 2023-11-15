@@ -35,7 +35,7 @@ export default function CartList(props) {
             <div className="text-lg flex items-center gap-3 opacity-50">
               Quantity: {quantity}
               <DeleteOutlineIcon
-                onClick={props.removeItemFromCart}
+                onClick={() => props.removeItemFromCart(product.id)}
                 className="hover:opacity-100 cursor-pointer"
               />
             </div>
