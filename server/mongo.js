@@ -2,7 +2,9 @@ import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
 
-const connectionString = `${process.env.MONGO_CONNECTION_URI}`;
+const connectionString = `${
+  process.env.MONGO_CONNECTION_URI || "mongodb://localhost:27017/coffee_shop"
+}`;
 
 mongoose
   .connect(`${connectionString}`)
